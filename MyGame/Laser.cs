@@ -5,6 +5,10 @@ namespace MyGame
 {
     class Laser : GameObject
     {
+        public override FloatRect GetCollisionRect()
+        {
+            return _sprite.GetGlobalBounds();
+        }
         private const float Speed = 1.2f;
         private readonly Sprite _sprite= new Sprite();
         public Laser(Vector2f pos)
