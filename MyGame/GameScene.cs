@@ -6,15 +6,30 @@ namespace MyGame
     public class GameScene : Scene
     {
         private int _score = 0;
+        private int _lives = 3;
 
         public int GetScore()
         {
             return _score;
         }
 
+        public int GetLives()
+        {
+            return _lives;
+        }
+
         public void IncreaseScore()
         {
             _score++;
+        }
+        public void DecreaseLives()
+        {
+            --_lives;
+            if (_lives == 0)
+            {
+                GameOverScene gameOverScene = new GameOverScene(_score);
+                Game.SetScene(gameOverScene);
+            }
         }
         public GameScene()
         {
