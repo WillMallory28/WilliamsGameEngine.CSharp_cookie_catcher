@@ -33,6 +33,10 @@ namespace MyGame
         }
         public GameScene()
         {
+            // Add background first so it renders behind everything
+            Background background = new Background();
+            AddGameObject(background);
+            
             Ship ship = new Ship();
             AddGameObject(ship);
             MeteorSpawner meteor = new MeteorSpawner();
