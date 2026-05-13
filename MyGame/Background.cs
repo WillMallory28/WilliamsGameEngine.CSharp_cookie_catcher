@@ -6,7 +6,7 @@ namespace MyGame
 {
     public class Background : GameObject
     {
-        private const float ScrollSpeed = 0.05f; // Slow scrolling speed
+        private const float ScrollSpeed = 0.05f;
         private readonly Sprite _sprite = new Sprite();
         private float _scrollOffset = 0f;
 
@@ -20,26 +20,24 @@ namespace MyGame
         {
             int msElapsed = elapsed.AsMilliseconds();
             
-            // Update scroll offset
+            // makes the backround scroll independent of the frame rate
             _scrollOffset += ScrollSpeed * msElapsed;
             
-            // Wrap around to create seamless scrolling
+            // wraps the backround so seemless
             float textureWidth = _sprite.Texture.Size.X;
             if (_scrollOffset > textureWidth)
             {
                 _scrollOffset -= textureWidth;
             }
             
-            // Update sprite position for scrolling effect
             _sprite.Position = new Vector2f(-_scrollOffset, 0);
         }
 
         public override void Draw()
         {
-            // Draw the main background sprite
             Game.RenderWindow.Draw(_sprite);
             
-            // Draw a second copy right after for seamless scrolling
+            // creates the second backround to make seemless
             Sprite secondBg = new Sprite(_sprite);
             secondBg.Position = new Vector2f(_sprite.Texture.Size.X - _scrollOffset, 0);
             Game.RenderWindow.Draw(secondBg);
