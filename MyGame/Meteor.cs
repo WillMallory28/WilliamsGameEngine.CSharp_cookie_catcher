@@ -21,9 +21,8 @@ namespace MyGame
         }
         public override void HandleCollision(GameObject otherGameObject)
         {
-            if (otherGameObject.HasTag("laser"))
+            if (otherGameObject.HasTag("ship"))
             {
-                otherGameObject.MakeDead();
                 GameScene scene = (GameScene)Game.CurrentScene;
                 scene.IncreaseScore();
             }

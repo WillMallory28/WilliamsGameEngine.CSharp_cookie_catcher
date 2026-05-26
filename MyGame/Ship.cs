@@ -14,11 +14,18 @@ namespace MyGame
         public Ship()
         {
             _sprite.Texture = Game.GetTexture("Resources/ship.png");
-            _sprite.Position = new Vector2f(100, 100);
+            _sprite.Position = new Vector2f(500, 500);
+
+            AssignTag("ship");
+            SetCollisionCheckEnabled(true);
         }
         public override void Draw()
         {
             Game.RenderWindow.Draw(_sprite);
+        }
+        public override FloatRect GetCollisionRect()
+        {
+            return _sprite.GetGlobalBounds();
         }
         public override void Update(Time elapsed)
         {
@@ -27,8 +34,6 @@ namespace MyGame
             float y = pos.Y;
             int msElapsed = elapsed.AsMilliseconds();
 
-            if (Keyboard.IsKeyPressed(Keyboard.Key.W)) { y -= Speed * msElapsed; }
-            if (Keyboard.IsKeyPressed(Keyboard.Key.S)) { y += Speed * msElapsed; }
             if (Keyboard.IsKeyPressed(Keyboard.Key.A)) { x -= Speed * msElapsed; }
             if (Keyboard.IsKeyPressed(Keyboard.Key.D)) { x += Speed * msElapsed; }
 
