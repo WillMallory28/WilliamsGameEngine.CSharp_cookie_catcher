@@ -45,7 +45,7 @@ namespace MyGame
             int msElapsed = elapsed.AsMilliseconds();
             Vector2f pos = _sprite.Position;
             
-            if(pos.X < _sprite.GetGlobalBounds().Width * -1)
+            if(pos.Y > Game.RenderWindow.Size.Y) //changed (checks if meteor goes off the bottom of the screen instead of the right)
             {
                 GameScene scene = (GameScene)Game.CurrentScene;
                 scene.DecreaseLives();
@@ -54,7 +54,7 @@ namespace MyGame
             }
             else
             {
-                _sprite.Position = new Vector2f(pos.X - Speed * msElapsed, pos.Y);
+                _sprite.Position = new Vector2f(pos.X, pos.Y + Speed * msElapsed);//changed (moves down instead of left)            
             }
         }
     }

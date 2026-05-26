@@ -20,9 +20,8 @@ namespace MyGame
                 Vector2u size = Game.RenderWindow.Size;
                 // Spawn the meteor off the right side of the screen.
                 // We're assuming the meteor isn't more than 100 pixels wide.
-                float meteorX = size.X + 100;
-                // Spawn the meteor somewhere along the height of the window, randomly
-                float meteorY = Game.Random.Next() % size.Y;
+                float meteorX = Game.Random.Next() % size.X;        //changed
+                float meteorY = -100;                               //changed
                 // Create a meteor and add it to the scene
                 Meteor meteor = new Meteor(new Vector2f(meteorX, meteorY));
                 Game.CurrentScene.AddGameObject(meteor);
