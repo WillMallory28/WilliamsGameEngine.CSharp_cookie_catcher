@@ -9,7 +9,7 @@ namespace MyGame
         {
             return _sprite.GetGlobalBounds();
         }
-        private const float Speed = 1.2f;
+        private const float Speed = 0f;
         private readonly Sprite _sprite= new Sprite();
         public Laser(Vector2f pos)
         {
@@ -17,10 +17,6 @@ namespace MyGame
             _sprite.Position = pos;
 
             AssignTag("laser");
-        }
-        public override void Draw()
-        {
-        Game.RenderWindow.Draw(_sprite);
         }
         public override void Update(Time elapsed)
         {

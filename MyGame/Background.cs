@@ -6,7 +6,7 @@ namespace MyGame
 {
     public class Background : GameObject
     {
-        private const float ScrollSpeed = 0.05f;
+        private const float ScrollSpeed = 0.0f; //changed to 0 to stop the backround from scrolling
         private readonly Sprite _sprite = new Sprite();
         private float _scrollOffset = 0f;
 
