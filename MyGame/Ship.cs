@@ -14,7 +14,7 @@ namespace MyGame
         public Ship()
         {
             _sprite.Texture = Game.GetTexture("Resources/ship.png");
-            _sprite.Position = new Vector2f(500, 500);
+            _sprite.Position = new Vector2f(450, 450); //Changed: spawn location
 
             AssignTag("ship");
             SetCollisionCheckEnabled(true);
