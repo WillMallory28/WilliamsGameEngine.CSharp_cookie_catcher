@@ -41,6 +41,9 @@ namespace MyGame
             AddGameObject(ship);
             MeteorSpawner meteor = new MeteorSpawner();
             AddGameObject(meteor);
+            SpikeSpawner spike = new SpikeSpawner();
+            AddGameObject(spike);
+            
             
             Score score = new Score(new Vector2f(10.0f, 10.0f));
             AddGameObject(score);
